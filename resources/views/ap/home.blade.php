@@ -17,7 +17,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $accinfo }}</h3>
+                                <h3>{{ $accInfo }}</h3>
 
                                 <p>Total Accounts</p>
                             </div>

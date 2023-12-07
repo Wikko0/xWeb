@@ -1,13 +1,37 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AddSystem\HofController;
+use App\Http\Controllers\Admin\AddSystem\InformationController;
+use App\Http\Controllers\Admin\AddSystem\NewsController;
+use App\Http\Controllers\Admin\AddSystem\VoteController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PaymentSystem\PaypalController;
+use App\Http\Controllers\Admin\ServerManager\PanelController;
+use App\Http\Controllers\Admin\ServerManager\ServerInformationController;
+use App\Http\Controllers\Admin\UserManager\CharacterController;
+use App\Http\Controllers\Admin\UserManager\GrandResetController;
+use App\Http\Controllers\Admin\UserManager\PkClearController;
+use App\Http\Controllers\Admin\UserManager\RenameController;
+use App\Http\Controllers\Admin\UserManager\ResetController;
+use App\Http\Controllers\Admin\UserManager\ResetStatsController;
+use App\Http\Controllers\Admin\UserManager\StatsController;
+use App\Http\Controllers\Admin\UserManager\VipController as AdminVipController;
+use App\Http\Controllers\Admin\WebsiteManager\AnnounceController;
+use App\Http\Controllers\Admin\WebsiteManager\BossController;
+use App\Http\Controllers\Admin\WebsiteManager\DownloadController as AdminDownloadController;
+use App\Http\Controllers\Admin\WebsiteManager\EventController;
+use App\Http\Controllers\Admin\WebsiteManager\SliderController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\doController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VipController;
 use App\Http\Controllers\xController;
+use Illuminate\Support\Facades\Route;
+
+/* Admin Controllers */
+
+/* Main Controllers */
 
 
 /*
@@ -27,6 +51,7 @@ Route::get('/user/{username}', [xController::class, 'user'])->name('user');
 Route::get('/logout', [doController::class, 'doLogout'])->name('logout');
 Route::post('/register', [doController::class, 'doRegister'])->name('register');
 Route::post('/login', [doController::class, 'doLogin'])->name('login');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +76,8 @@ Route::middleware('user')->group(function () {
     Route::get('/vote-reward', [UserController::class, 'voteReward'])->name('vote-reward');
     Route::post('/vote-reward', [UserController::class, 'doVoteReward'])->name('vote-reward');
 });
+
+
 /*
 |--------------------------------------------------------------------------
 | Admin Login Routes
@@ -58,96 +85,97 @@ Route::middleware('user')->group(function () {
 */
 Route::get('adminpanel/login', [AdminLoginController::class, 'adminLogin'])->name('adminpanel/login');
 Route::post('adminpanel/login', [AdminLoginController::class, 'doAdminLogin'])->name('adminpanel/login');
+
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
 |--------------------------------------------------------------------------
 */
 Route::prefix('adminpanel')->middleware('admin')->name('adminpanel/')->group(function () {
+    Route::get('', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('panel', [AdminController::class, 'panel'])->name('panel');
-    Route::post('panel', [AdminController::class, 'doPanel'])->name('panel');
+    Route::get('panel', [PanelController::class, 'index'])->name('panel');
+    Route::post('panel', [PanelController::class, 'doPanel'])->name('panel');
 
-    Route::get('', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('config', [ServerInformationController::class, 'index'])->name('server-information');
+    Route::post('config', [ServerInformationController::class, 'doServerInformation']);
 
-    Route::get('config', [AdminController::class, 'serverInformation'])->name('server-information');
-    Route::post('config', [AdminController::class, 'doServerInformation']);
+    Route::get('announce', [AnnounceController::class, 'index'])->name('announce');
+    Route::post('announce', [AnnounceController::class, 'doAnnounce']);
 
-    Route::get('announce', [AdminController::class, 'announce'])->name('announce');
-    Route::post('announce', [AdminController::class, 'doAnnounce']);
+    Route::get('download', [AdminDownloadController::class, 'index'])->name('download');
+    Route::post('download', [AdminDownloadController::class, 'doDownload']);
+    Route::delete('download', [AdminDownloadController::class, 'downloadDelete']);
 
-    Route::get('download', [AdminController::class, 'download'])->name('download');
-    Route::post('download', [AdminController::class, 'doDownload']);
-    Route::delete('download', [AdminController::class, 'downloadDelete']);
+    Route::get('event', [EventController::class, 'index'])->name('event');
+    Route::post('event', [EventController::class, 'doEvent']);
+    Route::delete('event', [EventController::class, 'eventDelete']);
 
-    Route::get('event', [AdminController::class, 'event'])->name('event');
-    Route::post('event', [AdminController::class, 'doEvent']);
-    Route::delete('event', [AdminController::class, 'eventDelete']);
+    Route::get('boss', [BossController::class, 'index'])->name('boss');
+    Route::post('boss', [BossController::class, 'doBoss']);
+    Route::delete('boss', [BossController::class, 'bossDelete']);
 
-    Route::get('boss', [AdminController::class, 'boss'])->name('boss');
-    Route::post('boss', [AdminController::class, 'doBoss']);
-    Route::delete('boss', [AdminController::class, 'bossDelete']);
+    Route::get('slider', [SliderController::class, 'index'])->name('slider');
+    Route::post('slider', [SliderController::class, 'sliderUpload']);
+    Route::delete('slider', [SliderController::class, 'sliderDelete']);
 
-    Route::get('slider', [AdminController::class, 'slider'])->name('slider');
-    Route::post('slider', [AdminController::class, 'sliderUpload']);
-    Route::delete('slider', [AdminController::class, 'sliderDelete']);
+    Route::get('news', [NewsController::class, 'news'])->name('news');
+    Route::post('news', [NewsController::class, 'newsUpload']);
+    Route::delete('news', [NewsController::class, 'newsDelete']);
 
-    Route::get('news', [AdminController::class, 'news'])->name('news');
-    Route::post('news', [AdminController::class, 'newsUpload']);
-    Route::delete('news', [AdminController::class, 'newsDelete']);
+    Route::get('updates', [NewsController::class, 'updates'])->name('updates');
+    Route::post('updates', [NewsController::class, 'updatesUpload']);
+    Route::delete('updates', [NewsController::class, 'updatesDelete']);
 
-    Route::get('updates', [AdminController::class, 'updates'])->name('updates');
-    Route::post('updates', [AdminController::class, 'updatesUpload']);
-    Route::delete('updates', [AdminController::class, 'updatesDelete']);
+    Route::get('events', [NewsController::class, 'events'])->name('events');
+    Route::post('events', [NewsController::class, 'eventsUpload']);
+    Route::delete('events', [NewsController::class, 'eventsDelete']);
 
-    Route::get('events', [AdminController::class, 'events'])->name('events');
-    Route::post('events', [AdminController::class, 'eventsUpload']);
-    Route::delete('events', [AdminController::class, 'eventsDelete']);
+    Route::get('hof', [HofController::class, 'index'])->name('hof');
+    Route::post('hof', [HofController::class, 'hofAdd']);
 
-    Route::get('hof', [AdminController::class, 'hof'])->name('hof');
-    Route::post('hof', [AdminController::class, 'hofAdd']);
+    Route::get('character', [CharacterController::class, 'index'])->name('character');
+    Route::post('character', [CharacterController::class, 'doCharacter']);
 
-    Route::get('character', [AdminController::class, 'character'])->name('character');
-    Route::post('character', [AdminController::class, 'doCharacter']);
+    Route::get('reset', [ResetController::class, 'index'])->name('reset');
+    Route::post('reset', [ResetController::class, 'doReset']);
 
-    Route::get('reset', [AdminController::class, 'reset'])->name('reset');
-    Route::post('reset', [AdminController::class, 'doReset']);
+    Route::get('addstats', [StatsController::class, 'index'])->name('add-stats');
+    Route::post('addstats', [StatsController::class, 'doAddStats']);
 
-    Route::get('addstats', [AdminController::class, 'addStats'])->name('add-stats');
-    Route::post('addstats', [AdminController::class, 'doAddStats']);
+    Route::get('grand-reset', [GrandResetController::class, 'index'])->name('grand-reset');
+    Route::post('grand-reset', [GrandResetController::class, 'doGrandReset']);
 
-    Route::get('grand-reset', [AdminController::class, 'grandReset'])->name('grand-reset');
-    Route::post('grand-reset', [AdminController::class, 'doGrandReset']);
+    Route::get('pkclear', [PkClearController::class, 'index'])->name('pk-clear');
+    Route::post('pkclear', [PkClearController::class, 'doPkClear']);
 
-    Route::get('pkclear', [AdminController::class, 'pkClear'])->name('pk-clear');
-    Route::post('pkclear', [AdminController::class, 'doPkClear']);
+    Route::get('rename', [RenameController::class, 'index'])->name('rename');
+    Route::post('rename', [RenameController::class, 'doReName']);
 
-    Route::get('rename', [AdminController::class, 'reName'])->name('rename');
-    Route::post('rename', [AdminController::class, 'doReName']);
+    Route::get('resetstats', [ResetStatsController::class, 'index'])->name('reset-stats');
+    Route::post('resetstats', [ResetStatsController::class, 'doResetStats']);
 
-    Route::get('resetstats', [AdminController::class, 'resetStats'])->name('reset-stats');
-    Route::post('resetstats', [AdminController::class, 'doResetStats']);
+    Route::get('paypal', [PaypalController::class, 'index'])->name('paypal');
+    Route::post('paypal', [PaypalController::class, 'doPaypal']);
 
-    Route::get('paypal', [AdminController::class, 'paypal'])->name('paypal');
-    Route::post('paypal', [AdminController::class, 'doPaypal']);
+    Route::get('paypal-pack', [PaypalController::class, 'paypalPack'])->name('paypal-pack');
+    Route::post('paypal-pack', [PaypalController::class, 'doPaypalPack']);
+    Route::delete('paypal-pack', [PaypalController::class, 'paypalPackDelete']);
 
-    Route::get('paypal-pack', [AdminController::class, 'paypalPack'])->name('paypal-pack');
-    Route::post('paypal-pack', [AdminController::class, 'doPaypalPack']);
-    Route::delete('paypal-pack', [AdminController::class, 'paypalPackDelete']);
+    Route::get('information', [InformationController::class, 'index'])->name('information');
+    Route::post('information', [InformationController::class, 'doInformation']);
 
-    Route::get('information', [AdminController::class, 'information'])->name('information');
-    Route::post('information', [AdminController::class, 'doInformation']);
+    Route::get('addinfo', [InformationController::class, 'addInfo'])->name('add-information');
+    Route::post('addinfo', [InformationController::class, 'doAddInfo']);
 
-    Route::get('addinfo', [AdminController::class, 'addInfo'])->name('add-information');
-    Route::post('addinfo', [AdminController::class, 'doAddInfo']);
+    Route::get('vip-pack', [AdminVipController::class, 'index'])->name('vip-pack');
+    Route::post('vip-pack', [AdminVipController::class, 'doVipPack']);
+    Route::delete('vip-pack', [AdminVipController::class, 'vipPackDelete']);
 
-    Route::get('vip-pack', [AdminController::class, 'vipPack'])->name('vip-pack');
-    Route::post('vip-pack', [AdminController::class, 'doVipPack']);
-    Route::delete('vip-pack', [AdminController::class, 'vipPackDelete']);
-
-    Route::get('votereward', [AdminController::class, 'voteReward'])->name('vote-reward');
-    Route::delete('votereward', [AdminController::class, 'voteRewardDelete']);
-    Route::post('votereward', [AdminController::class, 'dpVoteReward']);
+    Route::get('votereward', [VoteController::class, 'index'])->name('vote-reward');
+    Route::delete('votereward', [VoteController::class, 'voteRewardDelete']);
+    Route::post('votereward', [VoteController::class, 'dpVoteReward']);
 
 });
 

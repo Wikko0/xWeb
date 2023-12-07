@@ -12,11 +12,11 @@
                         <!-- Event form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Event Settings</h3>
+                                <h3 class="card-title">Boss Settings</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form method="post" action="{{ route('adminpanel/event') }}">
+                            <form method="post" action="{{ route('adminpanel/boss') }}">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
@@ -73,8 +73,8 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            @foreach($event['events']['event_timers'] as $key => $values)
-                                <form method="post" action="{{ route('adminpanel/event') }}">
+                            @foreach($boss['events']['event_timers'] as $key => $values)
+                                <form method="post" action="{{ route('adminpanel/boss') }}">
                                     @method('DELETE')
                                     @csrf
                                     <div class="card-body">
