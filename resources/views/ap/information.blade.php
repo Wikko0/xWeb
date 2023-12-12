@@ -14,7 +14,7 @@
                             </div>
                             <form method="post" action="{{ route('adminpanel/information') }}">
                                 @csrf
-                                @foreach($information as $values)
+                                @foreach($informationProvider as $values)
                                     <div class="card-body">
                                         <input type="hidden" class="form-control" id="id" name="id" value="{{ $values->id }}">
                                         <div class="form-group">

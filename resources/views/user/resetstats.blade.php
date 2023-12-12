@@ -5,15 +5,15 @@
     @include('block.rightblock')
 
     <main class="content">
+        <h1>Reset Stats</h1>
 
-            <h1>Reset Stats</h1>
         @include('block.alert')
 
         <form method="post" action="{{route('reset-stats')}}">
             @csrf
             <select name="char">
                 <option value="">Select Character</option>
-            @foreach($char as $chars)
+            @foreach($characterMiddleware as $chars)
 
                 <option value={{$chars->Name}}>{{$chars->Name}}</option>
 
@@ -21,7 +21,7 @@
             </select>
             <p><button class="big">Reset Stats</button></p>
         </form>
-            @foreach($resetstats as $values)
+            @foreach($resetStatsProvider as $values)
             <div class="notification information">
                 <div>Information for Reset Stats
 

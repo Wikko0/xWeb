@@ -5,31 +5,12 @@
     @include('block.rightblock')
 
     <main class="content">
+    <h1>Buy Credits</h1>
 
+        @include('block.alert')
 
-
-
-            <h1>Buy Credits</h1>
-        @if(session('success'))
-            <div class="notification success">
-
-                <div>
-                    <li>{{session('success')}}</li>
-
-                </div>
-            </div>
-        @endif
-        @if ($errors->any())
-            <div class="notification error">
-                <div>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </div>
-            </div>
-        @endif
-        @foreach($paypal_pack as $value)
-            <form action="/pay" method="post">
+        @foreach($paypalPackProvider as $value)
+            <form action="{{route('pay')}}" method="post">
 
                 @csrf
                 <input type="hidden" name="amount" value="{{$value->amount}}">
@@ -45,6 +26,4 @@
             </form>
         @endforeach
     </main><!-- content -->
-    </div><!-- container -->
-    </div><!-- block-links -->
 @endsection

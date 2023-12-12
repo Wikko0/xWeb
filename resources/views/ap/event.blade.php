@@ -74,7 +74,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            @foreach($event['events']['event_timers'] as $key => $values)
+                            @foreach($eventProvider['events']['event_timers'] as $key => $values)
                                 <form method="post" action="{{ route('adminpanel/event') }}">
                                     @method('DELETE')
                                     @csrf

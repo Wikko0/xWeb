@@ -8,13 +8,13 @@
     <h1>Information</h1>
 
     <div>
-        @foreach($addinfo as $values)
+        @foreach($addedInformationProvider as $values)
             {!! $values->information !!}
         @endforeach
     </div>
 
 
-@foreach($information as $values)
+@foreach($informationProvider as $values)
     <div class="information-table">
         <ul>
             <li>

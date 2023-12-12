@@ -11,7 +11,7 @@
         </div>
         <div class="header-slider">
             <div class="slider slider-top single-item">
-                @forelse($slider as $value)
+                @forelse($sliderProvider as $value)
                     <div><img src="images/{{$value->name}}.jpg" alt="Slider{{$value->name}}"></div>
                 @empty
                     <div><img src="{{asset('images/slider-img.jpg')}}" alt="Slider"></div>

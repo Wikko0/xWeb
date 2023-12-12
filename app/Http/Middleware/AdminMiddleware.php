@@ -17,7 +17,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(!session('Admin')) {
-            return redirect('adminpanel/login');
+            return redirect(route('adminpanel/login'));
         }
         return $next($request);
     }

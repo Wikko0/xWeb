@@ -73,7 +73,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            @foreach($boss['events']['event_timers'] as $key => $values)
+                            @foreach($bossProvider['events']['event_timers'] as $key => $values)
                                 <form method="post" action="{{ route('adminpanel/boss') }}">
                                     @method('DELETE')
                                     @csrf

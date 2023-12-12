@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Main\User;
 
-use App\Models\Character;
+use App\Http\Controllers\Controller;
 use App\Models\XWEB_CREDITS;
 use App\Models\XWEB_VIP;
 use Illuminate\Http\Request;
+use function redirect;
+use function session;
 
 class VipController extends Controller
 {

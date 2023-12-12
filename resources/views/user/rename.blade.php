@@ -5,8 +5,7 @@
     @include('block.rightblock')
 
     <main class="content">
-
-            <h1>Rename Character</h1>
+        <h1>Rename Character</h1>
 
         @include('block.alert')
 
@@ -14,7 +13,7 @@
             @csrf
             <select name="char">
                 <option value="">Select Character</option>
-            @foreach($char as $chars)
+            @foreach($characterMiddleware as $chars)
 
                 <option value={{$chars->Name}}>{{$chars->Name}}</option>
 
@@ -23,7 +22,7 @@
             <p><input type="text" name="name" placeholder="Choose a new name"></p>
             <p><button class="big">Rename Character</button></p>
         </form>
-            @foreach($rename as $values)
+            @foreach($renameProvider as $values)
             <div class="notification information">
                 <div>Information for Rename Character
 

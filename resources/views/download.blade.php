@@ -15,10 +15,10 @@
                 <p>Without sounds and musics:</p>
 
 
-                <span class="size">{{$full->mb}} MB</span>
+                <span class="size">{{$lite->mb}} MB</span>
 
                 <div class="flex-c-c">
-                    @foreach($litelink as $values)
+                    @foreach($liteLink as $values)
                         @if($values->site == 'google')
                         <a href="{{$values->link}}" class="button big download-button-link flex-c">
                         <i class="download-icon google"></i>
@@ -44,7 +44,7 @@
                     <span class="size">{{$full->mb}} MB</span>
 
                 <div class="flex-c-c">
-                    @foreach($fulllink as $values)
+                    @foreach($fullLink as $values)
                         @if($values->site == 'google')
                             <a href="{{$values->link}}" class="button big download-button-link flex-c">
                                 <i class="download-icon google"></i>

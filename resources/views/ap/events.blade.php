@@ -53,7 +53,7 @@
                             <!-- /.card-header -->
                             <!-- form start -->
 
-                            @foreach($new_events as $key => $values)
+                            @foreach($newEventsProvider as $key => $values)
                                 <form method="post" action="{{ route('adminpanel/events') }}">
                                     @method('DELETE')
                                     @csrf

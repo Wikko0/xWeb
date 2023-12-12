@@ -17,7 +17,7 @@
 
                             <form method="post" action="{{ route('adminpanel/server-information') }}">
                                 @csrf
-                                @foreach($admin as $values)
+                                @foreach($webInformationProvider as $values)
                                     <input type="hidden" name="id" value="{{ $values->id }}">
                                     <div class="card-body">
                                         <div class="form-group">

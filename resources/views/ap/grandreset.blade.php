@@ -14,7 +14,7 @@
                             </div>
                             <form method="post" action="{{ route('adminpanel/grand-reset') }}">
                                 @csrf
-                                @foreach($greset as $values)
+                                @foreach($grandResetProvider as $values)
                                     <div class="card-body">
                                         <input type="hidden" name="id" value="{{$values->id}}">
                                         <div class="form-group">

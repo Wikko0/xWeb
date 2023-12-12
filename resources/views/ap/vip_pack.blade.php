@@ -52,7 +52,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">All Packages</h3>
                             </div>
-                            @foreach($vip_pack as $values)
+                            @foreach($vipProvider as $values)
                                 <form method="post" action="{{ route('adminpanel/vip-pack') }}">
                                     @method('DELETE')
                                     @csrf

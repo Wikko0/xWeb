@@ -78,7 +78,7 @@
                     <img src="{{asset('/admin/img/avatar.png')}}" class="img-circle elevation-2" alt="Admin Avatar">
                 </div>
                 <div class="info">
-                    @foreach($adminname as $name)
+                    @foreach($adminProvider as $name)
                         <a href="{{route('adminpanel/panel')}}" class="d-block">{{ $name->admin }}</a>
                     @endforeach
                 </div>

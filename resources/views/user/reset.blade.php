@@ -5,15 +5,15 @@
     @include('block.rightblock')
 
     <main class="content">
-
         <h1>Reset Character</h1>
+
         @include('block.alert')
 
         <form method="post" action="{{route('reset')}}">
             @csrf
             <select name="char">
                 <option value="">Select Character</option>
-                @foreach($char as $chars)
+                @foreach($characterMiddleware as $chars)
                     <option value={{$chars->Name}}>{{$chars->Name}}: {{$chars->cLevel}} Level, {{$chars->Resets}}
                         Resets
                     </option>
@@ -24,12 +24,12 @@
                 <button class="big">Reset Character</button>
             </p>
         </form>
-        @foreach($reset as $values)
+        @foreach($resetProvider as $values)
             <div class="notification information">
                 <div>Information for Reset character
                     <li><b>Reset level</b> - {{$values->level}}</li>
                     <li><b>Reset Zen</b> - {{$values->zen}} zen x <i>Reset Number</i></li>
-                    @foreach($characters as $character)
+                    @foreach($charactersProvider as $character)
                         @if($character->class == 'Blade Knight' && $character->status == 'Yes')
                             <li><b>Reset Points [Blade Knight]</b> - {{$values->bkpoints}}</li>
                         @endif

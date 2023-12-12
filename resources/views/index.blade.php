@@ -36,7 +36,7 @@
                 </div>
                 <div class="tab-block">
                     <div class="tab-block-news active tab" id="news">
-                        @foreach($information as $values)
+                        @foreach($informationProvider as $values)
                             <h2>{{$values->version}}! {{$values->sname}}</h2>
                         @endforeach
                         @foreach($news->take(5) as $new)
@@ -47,7 +47,7 @@
                         @endforeach
                     </div>
                     <div class="tab-block-news tab" id="eventss">
-                        @foreach($information as $values)
+                        @foreach($informationProvider as $values)
                             <h2>{{$values->version}}! {{$values->sname}}</h2>
                         @endforeach
                         @foreach($events->take(5) as $event)
@@ -57,7 +57,7 @@
                         @endforeach
                     </div>
                     <div class="tab-block-news tab" id="updates">
-                        @foreach($information as $values)
+                        @foreach($informationProvider as $values)
                             <h2>{{$values->version}}! {{$values->sname}}</h2>
                         @endforeach
                         @foreach($updates->take(5) as $update)
@@ -134,7 +134,7 @@
             </div>
 
             <div class="slider slider-bottom single-item">
-                @foreach($hof as $values)
+                @foreach($charactersProvider as $values)
                     @if($values->class == "Blade Knight" && $values->status == "Yes")
 
 

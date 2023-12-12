@@ -43,7 +43,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
-                                    @foreach($slider as $values)
+                                    @foreach($sliderProvider as $values)
                                         <div class="col-sm-4">
                                             <div class="position-relative" style="min-height: 180px;">
                                                 <form method="post" action="{{ route('adminpanel/slider') }}">

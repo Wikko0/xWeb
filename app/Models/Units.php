@@ -24,7 +24,7 @@ class Units extends Model
         return $pkLevels[$value][$view] ?? 'Unknown';
     }
 
-    public static function getClassMappings()
+    public static function getClassMappings(): array
     {
         return [
             'sm' => [0, 1, 3, 7],
@@ -37,7 +37,7 @@ class Units extends Model
         ];
     }
 
-    public static function getClassIcons()
+    public static function getClassIcons(): array
     {
         return [
             'sm' => 'sm-icon.png',
@@ -50,13 +50,13 @@ class Units extends Model
         ];
     }
 
-    public static function getClassIconUrl($class)
+    public static function getClassIconUrl($class): string
     {
         $icons = self::getClassIcons();
         return url('/images/' . $icons[$class]);
     }
 
-    public static function generateCharacterTop5Row($index, $character)
+    public static function generateCharacterTop5Row($index, $character): string
     {
         $classMappings = self::getClassMappings();
 
@@ -78,7 +78,7 @@ class Units extends Model
         return $row;
     }
 
-    public static function generateCharacterRow($index, $character)
+    public static function generateCharacterRow($index, $character): string
     {
         $classMappings = self::getClassMappings();
         $guild = GuildMember::getGuildByUsername($character->Name);
@@ -97,13 +97,14 @@ class Units extends Model
             '<td><a href="/user/' . $character->Name . '">' . $character->Name . '</a></td>' .
             '<td>' . $classIcon . '</td>' .
             '<td>' . $guildName . ' </td>' .
+            '<td>' . $character->cLevel . '</td>' .
             '<td>' . $character->Resets . '</td>' .
             '</tr>';
 
         return $row;
     }
 
-    public static function generateGuildRow($index, $guild)
+    public static function generateGuildRow($index, $guild): string
     {
         $row = '<tr>' .
             ' <td>' . ++$index . '</td>' .
@@ -115,7 +116,7 @@ class Units extends Model
         return $row;
     }
 
-    public static function generateCharacterPanel($index, $character)
+    public static function generateCharacterPanel($index, $character): string
     {
         $classMappings = self::getClassMappings();
 

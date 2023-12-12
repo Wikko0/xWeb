@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateXWEBADMINCPSTable extends Migration
+class CreateXWEBWEBINFORMATIONSTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateXWEBADMINCPSTable extends Migration
      */
     public function up()
     {
-        Schema::connection('XWEB')->create('XWEB_ADMINCP', function (Blueprint $table) {
+        Schema::connection('XWEB')->create('XWEB_WEB_INFORMATION', function (Blueprint $table) {
             $table->id();
             $table->string('sname')->nullable();
             $table->text('stitle')->nullable();
@@ -32,6 +32,6 @@ class CreateXWEBADMINCPSTable extends Migration
      */
     public function down()
     {
-        Schema::connection('XWEB')->dropIfExists('XWEB_ADMINCP');
+        Schema::connection('XWEB')->dropIfExists('XWEB_WEB_INFORMATION');
     }
 }

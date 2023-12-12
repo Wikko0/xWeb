@@ -195,6 +195,26 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\LaravelInstallerServiceProvider::class,
+        /*
+        * xWeb Service Providers...
+        */
+        App\Providers\AdminProvider::class,
+        App\Providers\AnnounceProvider::class,
+        App\Providers\DownloadProvider::class,
+        App\Providers\EventProvider::class,
+        App\Providers\SliderProvider::class,
+        App\Providers\CharactersProvider::class,
+        App\Providers\InformationProvider::class,
+        App\Providers\VoteProvider::class,
+        App\Providers\OnlineProvider::class,
+        App\Providers\NewsProvider::class,
+        App\Providers\ResetProvider::class,
+        App\Providers\GrandResetProvider::class,
+        App\Providers\PkClearProvider::class,
+        App\Providers\RenameProvider::class,
+        App\Providers\ResetStatsProvider::class,
+        App\Providers\VipProvider::class,
+        App\Providers\PayProvider::class,
 
     ],
 

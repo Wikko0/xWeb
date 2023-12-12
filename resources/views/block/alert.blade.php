@@ -1,6 +1,5 @@
 @if(session('success'))
     <div class="notification success">
-
         <div>
             <li>{{session('success')}}</li>
 

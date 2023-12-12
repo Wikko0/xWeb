@@ -14,7 +14,7 @@
                             </div>
                             <form method="post" action="{{ route('adminpanel/paypal') }}">
                                 @csrf
-                                @foreach($paypal as $values)
+                                @foreach($paypalProvider as $values)
                                     <div class="card-body">
                                         <input type="hidden" name="id" value="{{$values->id}}">
                                         <div class="form-group">

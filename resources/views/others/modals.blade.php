@@ -68,7 +68,7 @@
 
         <div class="paypal-logo"></div>
 
-        @foreach($paypal_pack->take(4) as $value)
+        @foreach($paypalPackProvider->take(4) as $value)
         <form action="{{route('pay')}}" method="post">
 
             @csrf
@@ -95,7 +95,7 @@
             <b>Buy</b> <br>
             VIP
         </div>
-        @foreach($vip_pack->take(4) as $values)
+        @foreach($vipProvider->take(4) as $values)
         <form action="{{route('getvip')}}" method="post">
             @csrf
             <input type="hidden" name="days" value="{{$values->days}}">

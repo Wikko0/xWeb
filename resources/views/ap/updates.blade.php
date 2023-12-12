@@ -57,7 +57,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            @foreach($new_updates as $key => $values)
+                            @foreach($newUpdatesProvider as $key => $values)
                                 <form method="post" action="{{route('adminpanel/updates')}}">
                                     @method('DELETE')
                                     @csrf

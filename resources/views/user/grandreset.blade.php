@@ -5,8 +5,7 @@
     @include('block.rightblock')
 
     <main class="content">
-
-            <h1>Grand Reset Character</h1>
+       <h1>Grand Reset Character</h1>
 
         @include('block.alert')
 
@@ -14,14 +13,14 @@
             @csrf
             <select name="char">
                 <option value="">Select Character</option>
-            @foreach($char as $chars)
+            @foreach($characterMiddleware as $chars)
                 <option value={{$chars->Name}}>{{$chars->Name}}: Resets: {{$chars->Resets}}, {{$chars->cLevel}} Level </option>
 
             @endforeach
             </select>
             <p><button class="big">Reset Character</button></p>
         </form>
-            @foreach($greset as $values)
+            @foreach($grandResetProvider as $values)
             <div class="notification information">
                 <div>Information for Reset character
                     <li><b>Reset level</b> - {{$values->level}}</li>

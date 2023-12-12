@@ -79,7 +79,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            @foreach($download as $values)
+                            @foreach($downloadProvider as $values)
                                 <form method="post" action="{{route('adminpanel/download')}}">
                                     @method('DELETE')
                                     @csrf

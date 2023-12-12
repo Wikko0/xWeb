@@ -14,7 +14,7 @@
                             </div>
                             <form method="post" action="{{ route('adminpanel/reset') }}">
                                 @csrf
-                                @foreach($reset as $values)
+                                @foreach($resetProvider as $values)
                                     <input type="hidden" name="id" value="{{ $values->id }}">
                                     <div class="card-body">
                                         <div class="form-group">

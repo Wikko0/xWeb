@@ -1,19 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Login;
 
+use App\Http\Controllers\Controller;
 use App\Models\XWEB_ADMINLOGIN;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class AdminLoginController extends Controller
+class LoginController extends Controller
 {
-    public function adminLogin()
+    public function index(): View
     {
         return view('ap.login');
     }
 
 
-    public function doAdminLogin(Request $request)
+    public function doLogin(Request $request): RedirectResponse
     {
 
         $adminLogin = XWEB_ADMINLOGIN::adminLogin($request->login, $request->password);

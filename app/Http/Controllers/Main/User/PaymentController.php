@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Main\User;
 
+use App\Http\Controllers\Controller;
 use App\Models\XWEB_CREDITS;
 use App\Models\XWEB_PAYMENTS;
 use App\Models\XWEB_PAYPAL;
-use Faker\Provider\Payment;
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
+use function redirect;
+use function session;
+use function url;
 
 class PaymentController extends Controller
 {

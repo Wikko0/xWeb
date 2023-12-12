@@ -1,19 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Main;
 
-
+use App\Http\Controllers\Controller;
 use App\Models\MEMB_INFO;
 use App\Models\XWEB_CREDITS;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
+use Illuminate\View\View;
 
-
-class doController extends Controller
+class RegisterController extends Controller
 {
-    public function doRegister(Request $request)
+    public function index(): View
+    {
+        return view('register');
+    }
+
+    public function doRegister(Request $request): RedirectResponse
     {
         /* Validation */
         $request->validate([
@@ -42,40 +45,10 @@ class doController extends Controller
 
         /* Insert Credits */
         XWEB_CREDITS::insert([
-           'name' => $request->login,
-           'credits' => 0
+            'name' => $request->login,
+            'credits' => 0
         ]);
+
         return redirect()->back()->withSuccess('Thanks ' .$request->login. ' your registration was successful');
     }
-
-
-
-
-    public function doLogin(Request $request)
-    {
-        $userLogin = MEMB_INFO::userLogin($request->login, $request->password);
-
-
-        if ($userLogin) {
-            $request->session()->put('User', $userLogin->memb___id);
-            return redirect('account-panel');
-        }
-        else
-        {
-            return redirect()->back()->with('errors','Wrong password or account doesn\'t exist');
-        }
-
-
-    }
-
-    public function doLogout()
-    {
-
-        Session::flush();
-        return redirect('login');
-
-    }
 }
-
-
-

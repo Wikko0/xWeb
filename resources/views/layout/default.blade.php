@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    @foreach($admin as $head)
+    @foreach($webInformationProvider as $head)
         <meta charset="utf-8" />
         <title>{{$head->stitle}}</title>
         <meta name="keywords" content="{{$head->skeywords}}" />
@@ -42,7 +42,7 @@
     </div><!-- container -->
 </div>
 
-@foreach($announce as $values)
+@foreach($announceProvider as $values)
     @if($values->status==1)
         <!-- Announce Start -->
         <script src="{{asset('js/countdown.js')}}"></script>
@@ -61,14 +61,14 @@
             <div class="onlineBlock onlineBlock-purple">
                 <div class="oBlock">
                     <div class="online-text">
-                        {{$onlinePlayers}}
+                        {{$onlinePlayersProvider}}
                     </div>
                     <div class="online-rait">
                         Online
                     </div>
                 </div>
                 <div class="circle">
-                    <div class="circlestat" data-dimension="205" data-width="10" data-fontsize="12" data-percent="{{ ($onlinePlayers / 100) * 50 }}" data-fgcolor="#A466CE" data-bgcolor="rgba(0, 0, 0, 0.3)"></div>
+                    <div class="circlestat" data-dimension="205" data-width="10" data-fontsize="12" data-percent="{{ ($onlinePlayersProvider / 100) * 50 }}" data-fgcolor="#A466CE" data-bgcolor="rgba(0, 0, 0, 0.3)"></div>
                 </div>
             </div><!--onlineBlock-->
         </div><!--online-->
@@ -104,8 +104,8 @@
 <script src="{{asset('js/slick.min.js')}}"></script>
 <script src="{{asset('js/global.js')}}"></script>
 <script type="text/javascript">
-    let xWebConfig = @json(['timers' => $timers]);
-    let xWebConfigBoss = @json(['timers' => $bosstimers]);
+    let xWebConfig = @json(['timers' => $eventTimerProvider]);
+    let xWebConfigBoss = @json(['timers' => $bossTimerProvider]);
 </script>
 <script>
     $(document).on('ready', function() {

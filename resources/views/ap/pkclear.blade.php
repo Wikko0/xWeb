@@ -14,7 +14,7 @@
                             </div>
                             <form method="post" action="{{ route('adminpanel/pk-clear') }}">
                                 @csrf
-                                @foreach($pkclear as $values)
+                                @foreach($pkClearProvider as $values)
                                     <div class="card-body">
                                         <input type="hidden" name="id" value="{{$values->id}}">
                                         <div class="form-group">

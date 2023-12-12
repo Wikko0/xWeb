@@ -45,6 +45,7 @@
                     <td>Nick</td>
                     <td>Character</td>
                     <td>Guild</td>
+                    <td>Level</td>
                     <td>Resets</td>
                 </tr>
 

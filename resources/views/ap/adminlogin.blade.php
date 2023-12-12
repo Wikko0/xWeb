@@ -19,7 +19,7 @@
                             <!-- form start -->
                             <form method="post" action="{{route('adminpanel/panel')}}">
                                 @csrf
-                                @foreach($adminname as $values)
+                                @foreach($adminProvider as $values)
                                 <div class="card-body">
                                     <input type="hidden" class="form-control" id="id" name="id" value="{{$values->id}}">
                                     <div class="form-group">

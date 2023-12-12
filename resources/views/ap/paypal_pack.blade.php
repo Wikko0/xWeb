@@ -46,7 +46,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">All Packages</h3>
                             </div>
-                            @foreach($paypal_pack as $values)
+                            @foreach($paypalPackProvider as $values)
                                 <form method="post" action="{{ route('adminpanel/paypal-pack') }}">
                                     @method('DELETE')
                                     @csrf
