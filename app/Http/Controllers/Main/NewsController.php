@@ -15,7 +15,7 @@ class NewsController extends Controller
         $events = XWEB_NEWS::getEvents(5);
         $updates = XWEB_NEWS::getUpdates(5);
 
-        return view('news', [
+        return view('pages.news', [
             'news'=> $news,
             'events'=> $events,
             'updates'=> $updates

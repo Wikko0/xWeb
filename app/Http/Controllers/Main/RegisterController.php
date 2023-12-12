@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
     public function index(): View
     {
-        return view('register');
+        return view('pages.register');
     }
 
     public function doRegister(Request $request): RedirectResponse

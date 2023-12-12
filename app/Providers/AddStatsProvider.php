@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\DatabaseHelper;
 use App\Models\XWEB_ADDSTATS;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -26,7 +27,7 @@ class AddStatsProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Schema::connection('XWEB')->hasTable('XWEB_ADDSTATS')) {
+        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_ADDSTATS')) {
             $addStatsProvider = XWEB_ADDSTATS::get();
             View::share([
                 'addStatsProvider' => $addStatsProvider,

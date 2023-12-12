@@ -35,7 +35,8 @@
         },
         "files": [
             "app/Helpers/functions.php",
-            "app/Helpers/EventHelper.php"
+            "app/Helpers/EventHelper.php",
+            "app/Helpers/DatabaseHelper.php"
         ]
     },
     "autoload-dev": {

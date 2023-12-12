@@ -31,7 +31,7 @@ class RankingController extends Controller
             $output .= $row;
         }
 
-        return view('ranking', [
+        return view('pages.ranking', [
             'output' => $output,
             'selectedCharacters' => $selectedCharacters
         ]);

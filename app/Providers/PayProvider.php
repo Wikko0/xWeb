@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\DatabaseHelper;
 use App\Models\XWEB_PAYPAL;
 use App\Models\XWEB_PAYPAL_PACKAGE;
 use Illuminate\Support\Facades\Schema;
@@ -27,7 +28,7 @@ class PayProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Schema::connection('XWEB')->hasTable('XWEB_PAYPAL') &&
+        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_PAYPAL') &&
             Schema::connection('XWEB')->hasTable('XWEB_PAYPAL_PACKAGE')) {
 
             $paypalProvider = XWEB_PAYPAL::get();

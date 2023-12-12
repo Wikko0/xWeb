@@ -22,7 +22,7 @@ class UserController extends Controller
         $guild = GuildMember::getGuildByUsername($username);
         $background = User::background($user->Class);
 
-        return view('user', [
+        return view('pages.user', [
             'user' => $user,
             'class' => $class,
             'grandResets' => $grandResets,

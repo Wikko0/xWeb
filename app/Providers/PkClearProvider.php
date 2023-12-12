@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\DatabaseHelper;
 use App\Models\XWEB_PKCLEAR;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -26,7 +27,7 @@ class PkClearProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Schema::connection('XWEB')->hasTable('XWEB_PKCLEAR')) {
+        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_PKCLEAR')) {
             $pkClearProvider = XWEB_PKCLEAR::get();
             View::share([
                 'pkClearProvider' => $pkClearProvider,

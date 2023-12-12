@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\DatabaseHelper;
 use App\Models\XWEB_VOTE_PACKAGE;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -26,7 +27,7 @@ class VoteProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Schema::connection('XWEB')->hasTable('XWEB_VOTE_PACKAGE')) {
+        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_VOTE_PACKAGE')) {
             $voteProvider = XWEB_VOTE_PACKAGE::get();
             View::share([
                 'voteProvider' => $voteProvider,

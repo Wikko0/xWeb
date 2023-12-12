@@ -13,7 +13,7 @@ class LoginController extends Controller
 {
     public function index(): View
     {
-        return view('login');
+        return view('pages.login');
     }
 
     public function doLogin(Request $request): RedirectResponse

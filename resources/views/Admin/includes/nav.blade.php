@@ -45,6 +45,12 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
+                    <a href="{{route('adminpanel/template')}}" class="nav-link {{ Route::is('adminpanel/teamplate') ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Template Settings</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('adminpanel/announce')}}" class="nav-link {{ Route::is('adminpanel/announce') ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Announce Settings</p>

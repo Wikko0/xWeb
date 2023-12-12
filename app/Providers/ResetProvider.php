@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\DatabaseHelper;
 use App\Models\XWEB_RESET;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -26,7 +27,7 @@ class ResetProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Schema::connection('XWEB')->hasTable('XWEB_RESET')) {
+        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_RESET')) {
             $resetProvider = XWEB_RESET::get();
             View::share([
                 'resetProvider' => $resetProvider,

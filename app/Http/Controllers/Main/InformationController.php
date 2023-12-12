@@ -19,7 +19,7 @@ class InformationController extends Controller
         $countGuild = Guild::count();
         $countOnline = MEMB_STAT::where('ConnectStat', 1)->count();
 
-        return view('information',[
+        return view('pages.information',[
             'countAcc' => $countAcc,
             'countChar' => $countChar,
             'countGuild' => $countGuild,

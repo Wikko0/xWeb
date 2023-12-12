@@ -9,6 +9,7 @@ class XWEB_TEMPLATE extends Model
 {
     use HasFactory;
 
+    protected $guarded;
     protected $table = 'XWEB_TEMPLATE';
     protected $connection = 'XWEB';
     public $timestamps = false;

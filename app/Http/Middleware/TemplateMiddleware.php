@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\XWEB_TEMPLATE;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -18,8 +19,13 @@ class TemplateMiddleware
     public function handle(Request $request, Closure $next)
     {
 
+        $activeTemplate = XWEB_TEMPLATE::first();
 
-        View::addLocation(resource_path('views/Default'));
+        if ($activeTemplate){
+            View::addLocation(resource_path('views/' . $activeTemplate->active));
+        } else {
+            View::addLocation(resource_path('views/Default'));
+        }
 
         return $next($request);
     }

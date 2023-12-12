@@ -17,7 +17,7 @@ class DownloadController extends Controller
         $fullLink = XWEB_DOWNLOAD::where('version', '=', 'full')->get();
         $update = XWEB_DOWNLOAD::where('version', '=', 'update')->get();
 
-        return view('download', [
+        return view('pages.download', [
             'lite' => $lite,
             'full' => $full,
             'liteLink' => $liteLink,

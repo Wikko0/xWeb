@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\DatabaseHelper;
 use App\Models\XWEB_VIP_PACKAGE;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -26,7 +27,7 @@ class VipProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Schema::connection('XWEB')->hasTable('XWEB_VIP_PACKAGE')) {
+        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_VIP_PACKAGE')) {
             $vipProvider = XWEB_VIP_PACKAGE::get();
             View::share([
                 'vipProvider' => $vipProvider,

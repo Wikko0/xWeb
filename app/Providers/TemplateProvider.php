@@ -3,12 +3,12 @@
 namespace App\Providers;
 
 use App\Helpers\DatabaseHelper;
-use App\Models\XWEB_GRANDRESET;
+use App\Models\XWEB_TEMPLATE;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
-class GrandResetProvider extends ServiceProvider
+class TemplateProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -27,10 +27,10 @@ class GrandResetProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_GRANDRESET')) {
-            $grandResetProvider = XWEB_GRANDRESET::get();
+        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_TEMPLATE')) {
+            $templateProvider = XWEB_TEMPLATE::first();
             View::share([
-                'grandResetProvider' => $grandResetProvider,
+                'templateProvider' => $templateProvider,
             ]);
         }
     }

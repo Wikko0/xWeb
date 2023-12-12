@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\DatabaseHelper;
 use App\Models\XWEB_ADD_INFORMATION;
 use App\Models\XWEB_INFORMATION;
 use Illuminate\Support\Facades\Schema;
@@ -27,14 +28,14 @@ class InformationProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Schema::connection('XWEB')->hasTable('XWEB_INFORMATION')) {
+        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_INFORMATION')) {
             $informationProvider = XWEB_INFORMATION::get();
             View::share([
                 'informationProvider' => $informationProvider,
             ]);
         }
 
-        if (Schema::connection('XWEB')->hasTable('XWEB_ADD_INFORMATION')) {
+        if (DatabaseHelper::isXWEBConnected() && Schema::connection('XWEB')->hasTable('XWEB_ADD_INFORMATION')) {
             $addedInformationProvider = XWEB_ADD_INFORMATION::get();
             View::share([
                 'addedInformationProvider' => $addedInformationProvider,

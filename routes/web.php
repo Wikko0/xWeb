@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\UserManager\ResetController as AdminResetControll
 use App\Http\Controllers\Admin\UserManager\ResetStatsController as AdminResetStatsController;
 use App\Http\Controllers\Admin\UserManager\StatsController;
 use App\Http\Controllers\Admin\UserManager\VipController as AdminVipController;
+use App\Http\Controllers\Admin\WebsiteManager\TemplateController;
 use App\Http\Controllers\Admin\WebsiteManager\AnnounceController;
 use App\Http\Controllers\Admin\WebsiteManager\BossController;
 use App\Http\Controllers\Admin\WebsiteManager\DownloadController as AdminDownloadController;
@@ -65,7 +66,7 @@ Route::get('/ranking', [RankingController::class, 'index'])->name('ranking');
 
 Route::get('/news', [NewsController::class, 'index'])->name('news');
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'doLogin'])->name('login');
 Route::get('/logout', [LoginController::class, 'doLogout'])->name('logout');
 
@@ -130,6 +131,10 @@ Route::prefix('adminpanel')->middleware('admin')->name('adminpanel/')->group(fun
 
     Route::get('config', [ServerInformationController::class, 'index'])->name('server-information');
     Route::post('config', [ServerInformationController::class, 'doServerInformation']);
+
+    Route::get('template', [TemplateController::class, 'index'])->name('template');
+    Route::post('template', [TemplateController::class, 'doTemplate']);
+
 
     Route::get('announce', [AnnounceController::class, 'index'])->name('announce');
     Route::post('announce', [AnnounceController::class, 'doAnnounce']);

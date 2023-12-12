@@ -34,7 +34,7 @@ class HomeController extends Controller
         $events = XWEB_NEWS::getEvents(5);
         $updates = XWEB_NEWS::getUpdates(5);
 
-        return view('index', [
+        return view('pages.index', [
             'topCharacters' => $topCharacters,
             'topGuilds' => $topGuilds,
             'news' => $news,

@@ -216,6 +216,7 @@ return [
         App\Providers\VipProvider::class,
         App\Providers\PayProvider::class,
         App\Providers\AddStatsProvider::class,
+        App\Providers\TemplateProvider::class,
 
     ],
 
