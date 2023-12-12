@@ -683,8 +683,8 @@
                     L: [ "[0-9]{2}", Date.prototype.setMilliseconds, "milliseconds", function() {
                         return w(Date.prototype.getMilliseconds.call(this), 2);
                     } ],
-                    t: [ "[ap]", y, "ampm", b, 1 ],
-                    tt: [ "[ap]m", y, "ampm", b, 2 ],
+                    t: [ "[pages]", y, "ampm", b, 1 ],
+                    tt: [ "[pages]m", y, "ampm", b, 2 ],
                     T: [ "[AP]", y, "ampm", b, 1 ],
                     TT: [ "[AP]M", y, "ampm", b, 2 ],
                     Z: [ ".*", void 0, "Z", function() {
@@ -903,7 +903,7 @@
                             return t ? S(i.outputFormat, _(e, i.inputFormat, i), i, !0) : t;
                         },
                         casing: function(e, t, i, a) {
-                            return 0 == t.nativeDef.indexOf("[ap]") ? e.toLowerCase() : 0 == t.nativeDef.indexOf("[AP]") ? e.toUpperCase() : e;
+                            return 0 == t.nativeDef.indexOf("[pages]") ? e.toLowerCase() : 0 == t.nativeDef.indexOf("[AP]") ? e.toUpperCase() : e;
                         },
                         onBeforeMask: function(e, t) {
                             return "[object Date]" === Object.prototype.toString.call(e) && (e = M(e, t)), e;

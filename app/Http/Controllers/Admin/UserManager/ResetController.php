@@ -14,8 +14,7 @@ class ResetController extends Controller
 {
     public function index(): View
     {
-        $db = ['reset' => XWEB_RESET::get()];
-        return view('ap.reset', $db);
+        return view('pages.UserManager.reset');
     }
 
     public function doReset(Request $request): RedirectResponse

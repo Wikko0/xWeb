@@ -23,7 +23,7 @@ class DashboardController extends Controller
             ['ConnectTM', '>', Carbon::now()->subDays(1)],
         ])->count();
 
-        return view('ap.home', [
+        return view('pages.home', [
             'accInfo' => $accInfo,
             'charInfo' => $charInfo,
             'online' => $online,

@@ -16,7 +16,7 @@ class SliderController extends Controller
 {
     public function index(): View
     {
-        return view('ap.slider');
+        return view('pages.WebsiteManager.slider');
     }
 
     public function sliderUpload(Request $request): RedirectResponse

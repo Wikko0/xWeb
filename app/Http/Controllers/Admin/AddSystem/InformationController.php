@@ -15,8 +15,8 @@ class InformationController extends Controller
 {
     public function index(): View
     {
-        $db = ['information' => XWEB_INFORMATION::get()];
-        return view('ap.information', $db);
+
+        return view('pages.AddSystem.information');
     }
 
     public function doInformation(Request $request): RedirectResponse
@@ -47,8 +47,7 @@ class InformationController extends Controller
 
     public function addInfo(): View
     {
-        $checkinfo = XWEB_ADD_INFORMATION::get();
-        return view('ap.addinfo',['checkinfo' => $checkinfo]);
+        return view('pages.AddSystem.addinfo');
     }
 
     public function doAddInfo(Request $request): RedirectResponse

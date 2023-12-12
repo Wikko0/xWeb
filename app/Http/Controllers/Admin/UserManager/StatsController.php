@@ -14,8 +14,7 @@ class StatsController extends Controller
 {
     public function index(): View
     {
-        $db = ['addstats' => XWEB_ADDSTATS::get()];
-        return view('ap.addstats', $db);
+        return view('pages.UserManager.addstats');
     }
 
     public function doAddStats(Request $request): RedirectResponse

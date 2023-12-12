@@ -15,7 +15,7 @@ class AnnounceController extends Controller
     public function index(): View
     {
         $select = XWEB_ANNOUNCE::first();
-        return view('ap.announce', ['announce_config' => $select]);
+        return view('pages.WebsiteManager.announce', ['announce_config' => $select]);
     }
 
     public function doAnnounce(Request $request): RedirectResponse

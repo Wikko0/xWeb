@@ -7,7 +7,7 @@ return [
      * Shared translations.
      *
      */
-    'title' => 'xWeb Installer',
+    'title' => 'xWeb installer',
     'next' => 'Next Step',
     'back' => 'Previous',
     'finish' => 'Install',
@@ -22,7 +22,7 @@ return [
      */
     'welcome' => [
         'templateTitle' => 'Welcome',
-        'title'   => 'xWeb Installer',
+        'title'   => 'xWeb installer',
         'message' => 'Easy Installation and Setup Wizard.',
         'next'    => 'Check Requirements',
     ],
@@ -178,7 +178,7 @@ return [
      *
      */
     'installed' => [
-        'success_log_message' => 'xWeb Installer successfully INSTALLED on ',
+        'success_log_message' => 'xWeb installer successfully INSTALLED on ',
     ],
 
     /*
@@ -243,7 +243,7 @@ return [
         ],
 
         'log' => [
-            'success_message' => 'xWeb Installer successfully UPDATED on ',
+            'success_message' => 'xWeb installer successfully UPDATED on ',
         ],
     ],
 ];

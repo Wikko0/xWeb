@@ -14,8 +14,7 @@ class CharacterController extends Controller
 {
     public function index(): View
     {
-        $char = XWEB_CHARACTERS::get();
-        return view('ap.character', ['char' => $char]);
+        return view('pages.UserManager.character');
     }
 
     public function doCharacter(Request $request): RedirectResponse

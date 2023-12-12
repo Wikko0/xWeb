@@ -14,7 +14,7 @@ class DownloadController extends Controller
 {
     public function index(): View
     {
-        return view('ap.download');
+        return view('pages.WebsiteManager.download');
     }
 
     public function doDownload(Request $request): RedirectResponse

@@ -14,7 +14,7 @@ class BossController extends Controller
 {
     public function index(): View
     {
-        return view('ap.boss');
+        return view('pages.WebsiteManager.boss');
     }
 
     public function doBoss(Request $request): RedirectResponse

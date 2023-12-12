@@ -14,8 +14,8 @@ class RenameController extends Controller
 {
     public function index(): View
     {
-        $db = ['rename' => XWEB_RENAME::get()];
-        return view('ap.rename', $db);
+
+        return view('pages.UserManager.rename');
     }
 
     public function doReName(Request $request): RedirectResponse

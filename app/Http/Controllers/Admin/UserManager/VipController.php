@@ -14,8 +14,7 @@ class VipController extends Controller
 {
     public function index(): View
     {
-        $db = ['vip_pack' => XWEB_VIP_PACKAGE::get()];
-        return view('ap.vip_pack', $db);
+        return view('pages.UserManager.vip_pack');
     }
 
     public function doVipPack(Request $request): RedirectResponse

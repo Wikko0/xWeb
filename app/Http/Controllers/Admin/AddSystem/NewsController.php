@@ -14,17 +14,17 @@ class NewsController extends Controller
 {
     public function news(): View
     {
-        return view('ap.news');
+        return view('pages.AddSystem.news');
     }
 
     public function events(): View
     {
-        return view('ap.events');
+        return view('pages.AddSystem.events');
     }
 
     public function updates(): View
     {
-        return view('ap.news');
+        return view('pages.AddSystem.news');
     }
 
     private function uploadFrame(Request $request, $specific): void

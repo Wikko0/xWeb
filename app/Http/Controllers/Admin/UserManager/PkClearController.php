@@ -14,8 +14,7 @@ class PkClearController extends Controller
 {
     public function index(): View
     {
-        $db = ['pkclear' => XWEB_PKCLEAR::get()];
-        return view('ap.pkclear', $db);
+        return view('pages.UserManager.pkclear');
     }
 
     public function doPkClear(Request $request): RedirectResponse

@@ -16,8 +16,8 @@ class VoteController extends Controller
 {
     public function index(): View
     {
-        $db = ['votereward' => XWEB_VOTE_PACKAGE::get()];
-        return view('ap.votereward', $db);
+
+        return view('pages.AddSystem.votereward');
     }
 
     public function doVoteReward(Request $request): RedirectResponse

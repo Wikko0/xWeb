@@ -14,8 +14,7 @@ class GrandResetController extends Controller
 {
     public function index(): View
     {
-        $db = ['greset' => XWEB_GRANDRESET::get()];
-        return view('ap.grandreset', $db);
+        return view('pages.UserManager.grandreset');
     }
 
     public function doGrandReset(Request $request): RedirectResponse

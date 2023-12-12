@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
     public function index(): View
     {
-        return view('ap.login');
+        return view('pages.Login.login');
     }
 
 

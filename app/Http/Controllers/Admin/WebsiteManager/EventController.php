@@ -14,7 +14,7 @@ class EventController extends Controller
 {
     public function index(): View
     {
-        return view('ap.event');
+        return view('pages.WebsiteManager.event');
     }
 
     public function doEvent(Request $request): RedirectResponse

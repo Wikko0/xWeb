@@ -14,7 +14,7 @@ class ServerInformationController extends Controller
 {
     public function index(): View
     {
-        return view('ap.server_information');
+        return view('pages.ServerManager.server_information');
     }
 
     public function doServerInformation(Request $request): RedirectResponse

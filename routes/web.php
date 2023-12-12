@@ -229,7 +229,7 @@ Route::post('/getvip', [VipController::class, 'getVip'])->name('getvip');
 
 /*
 |--------------------------------------------------------------------------
-| Installer Routes
+| installer Routes
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' => 'App\Http\Controllers\Installer', 'middleware' => ['web', 'install']], function () {    Route::get('/', [

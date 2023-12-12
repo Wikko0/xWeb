@@ -15,8 +15,7 @@ class PaypalController extends Controller
 {
     public function index(): View
     {
-        $db = ['paypal' => XWEB_PAYPAL::get()];
-        return view('ap.paypal', $db);
+        return view('pages.PaymentSystem.paypal');
     }
 
     public function doPaypal(Request $request): RedirectResponse
@@ -41,8 +40,7 @@ class PaypalController extends Controller
 
     public function paypalPack(): View
     {
-        $db = ['paypal_pack' => XWEB_PAYPAL_PACKAGE::get()];
-        return view('ap.paypal_pack', $db);
+        return view('pages.PaymentSystem.paypal_pack');
     }
 
     public function doPaypalPack(Request $request): RedirectResponse

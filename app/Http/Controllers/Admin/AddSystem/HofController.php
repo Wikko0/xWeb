@@ -15,7 +15,7 @@ class HofController extends Controller
     public function index(): View
     {
         $char = XWEB_CHARACTERS::get();
-        return view('ap.hof', ['char' => $char]);
+        return view('pages.AddSystem.hof', ['char' => $char]);
     }
 
     public function hofAdd(Request $request): RedirectResponse

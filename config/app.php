@@ -215,6 +215,7 @@ return [
         App\Providers\ResetStatsProvider::class,
         App\Providers\VipProvider::class,
         App\Providers\PayProvider::class,
+        App\Providers\AddStatsProvider::class,
 
     ],
 

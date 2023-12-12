@@ -14,8 +14,7 @@ class ResetStatsController extends Controller
 {
     public function index(): View
     {
-        $db = ['resetstats' => XWEB_RESETSTATS::get()];
-        return view('ap.resetstats', $db);
+        return view('pages.UserManager.resetstats');
     }
 
     public function doResetStats(Request $request): RedirectResponse

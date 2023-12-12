@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\XWEB_ADMINCP;
+use App\Models\XWEB_WEB_INFORMATION;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +16,7 @@ class serverInformationSeeder extends Seeder
      */
     public function run()
     {
-        XWEB_ADMINCP::create([
+        XWEB_WEB_INFORMATION::create([
             'sname' => 'XWeb Server',
             'stitle' => 'XWeb',
             'sdescription' => 'MU Online',

@@ -14,7 +14,7 @@ class PanelController extends Controller
 {
     public function index(): View
     {
-        return view('ap.adminlogin');
+        return view('pages.ServerManager.panel');
     }
 
     public function doPanel(Request $request): RedirectResponse
